@@ -49,6 +49,14 @@ stages {
 		}
 	
 	}
+	stage('connecting to ansible'){
+		steps {
+			sh 'ansible tomcat -u root -m ping'
+		
+		}
+	
+	
+	}
 
  }
 
