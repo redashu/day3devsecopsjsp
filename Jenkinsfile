@@ -57,6 +57,12 @@ stages {
 	
 	
 	}
+	stage('deploy war file using ansible'){
+		steps {
+			sh 'ansible-playbook tomcatdeploy.yml'
+		}
+	
+	}
 
  }
 
