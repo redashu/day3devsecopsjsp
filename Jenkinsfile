@@ -19,11 +19,26 @@ stages {
 		steps {
 			sh 'docker run  --rm  gesellix/trufflehog --json  https://github.com/redashu/day3devsecopsjsp.git  >mybugs.txt'
 			sh 'cat mybugs.txt'
+			
 		
 		
 		 }
 	
 	
+	
+	}
+	
+	stage('vulnearability scan by sonar')
+	{
+		steps{
+			withSonarQubeEnv('sonar'){
+				sh 'mvn sonar:sonar'
+				sh 'cat target/sonar/report-task.txt'
+			
+			}
+		
+		
+		}	
 	
 	}
 	
