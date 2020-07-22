@@ -28,19 +28,7 @@ stages {
 	
 	}
 	
-	stage('vulnearability scan by sonar')
-	{
-		steps{
-			withSonarQubeEnv('sonar'){
-				sh 'mvn sonar:sonar'
-				sh 'cat target/sonar/report-task.txt'
-			
-			}
-		
-		
-		}	
 	
-	}
 	
 	stage('build java project'){
 		steps {
